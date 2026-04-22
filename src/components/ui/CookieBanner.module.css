@@ -1,0 +1,70 @@
+.banner {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 9999;
+  background: #12352a;
+  color: #faf6ef;
+  box-shadow: 0 -4px 24px rgba(18, 53, 42, 0.3);
+  animation: slideUp 0.3s var(--ease-out) both;
+}
+
+@keyframes slideUp {
+  from { transform: translateY(100%); opacity: 0; }
+  to   { transform: translateY(0);    opacity: 1; }
+}
+
+.inner {
+  max-width: var(--container-max);
+  margin-inline: auto;
+  padding: var(--space-4) var(--space-6);
+  display: flex;
+  align-items: center;
+  gap: var(--space-6);
+  flex-wrap: wrap;
+}
+
+.text {
+  flex: 1;
+  font-size: var(--fs-sm);
+  color: rgba(250, 246, 239, 0.85);
+  margin: 0;
+  min-width: 240px;
+}
+
+.link {
+  color: var(--color-gold-300);
+  text-decoration: underline;
+}
+
+.actions {
+  display: flex;
+  gap: var(--space-3);
+  flex-shrink: 0;
+}
+
+.btnAccept {
+  padding: .55rem 1.2rem;
+  background: var(--color-terracotta-500, #c97b5a);
+  color: #fff;
+  border: none;
+  border-radius: var(--radius-pill);
+  font-size: var(--fs-sm);
+  font-weight: 600;
+  cursor: pointer;
+  transition: background .2s;
+}
+.btnAccept:hover { background: var(--color-terracotta-700, #a05438); }
+
+.btnRefuse {
+  padding: .55rem 1.2rem;
+  background: transparent;
+  color: rgba(250, 246, 239, 0.65);
+  border: 1px solid rgba(250, 246, 239, 0.25);
+  border-radius: var(--radius-pill);
+  font-size: var(--fs-sm);
+  cursor: pointer;
+  transition: color .2s, border-color .2s;
+}
+.btnRefuse:hover { color: #faf6ef; border-color: rgba(250, 246, 239, 0.55); }

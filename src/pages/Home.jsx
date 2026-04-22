@@ -16,7 +16,7 @@ export default function Home() {
       <section className={styles.hero}>
         <div className={`container ${styles.heroInner}`}>
           <div className={styles.heroCopy}>
-            <span className={`${styles.eyebrow} anim-fade-in-up`}>Atelier d'art · Nancy</span>
+            <span className={`${styles.eyebrow} anim-fade-in-up`}>Atelier d'art · Metz</span>
             <h1 className="anim-fade-in-up" style={{ animationDelay: '80ms' }}>
               La lumière,<br />
               <em>matériau d'exception.</em>
@@ -101,7 +101,7 @@ export default function Home() {
           </article>
           <article className={styles.pillar}>
             <span className={styles.pillarIcon}>⚒</span>
-            <h3>Fait main à Nancy</h3>
+            <h3>Fait main à Metz</h3>
             <p>
               Chaque pièce est dessinée, découpée, sertie et soudée dans notre
               atelier, à la main, à l'ancienne.
@@ -134,12 +134,12 @@ export default function Home() {
           </Button>
         </div>
       </Section>
-      <BtnVitraux>
+      {/* <BtnVitraux>
         Sur mesure
       </BtnVitraux>
       <BtnVitraux2>
         sur emsure
-      </BtnVitraux2>
+      </BtnVitraux2> */}
 
       {/* ---------- Bandeau sur-mesure ---------- */}
       {/* <section className={styles.quoteBand}>

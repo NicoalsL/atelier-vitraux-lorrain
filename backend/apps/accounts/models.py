@@ -1,8 +1,14 @@
-from django.contrib.auth.models import AbstractUser
+from django.contrib.auth.models import AbstractUser, UserManager
 from django.db import models
 
 
+class CaseInsensitiveUserManager(UserManager):
+    def get_by_natural_key(self, username):
+        return self.get(**{f'{self.model.USERNAME_FIELD}__iexact': username})
+
+
 class User(AbstractUser):
+    objects = CaseInsensitiveUserManager()
     email = models.EmailField(unique=True)
     phone = models.CharField(max_length=20, blank=True)
 
