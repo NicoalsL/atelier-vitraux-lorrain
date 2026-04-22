@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 800" role="img" aria-label="Médaillon Soleil couchant">
+  <defs>
+    <radialGradient id="sun" cx="0.5" cy="0.5" r="0.5">
+      <stop offset="0%" stop-color="#fff4dc"/>
+      <stop offset="50%" stop-color="#d9b382"/>
+      <stop offset="100%" stop-color="#c97b5a"/>
+    </radialGradient>
+    <linearGradient id="ring" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#2f6e57"/>
+      <stop offset="100%" stop-color="#12352a"/>
+    </linearGradient>
+  </defs>
+  <rect width="600" height="800" fill="#faf6ef"/>
+  <circle cx="300" cy="400" r="240" fill="url(#ring)" stroke="#1a1a18" stroke-width="4"/>
+  <circle cx="300" cy="400" r="130" fill="url(#sun)" stroke="#1a1a18" stroke-width="3"/>
+  <!-- rayons -->
+  <g stroke="#1a1a18" stroke-width="3" fill="none">
+    <line x1="300" y1="170" x2="300" y2="270"/>
+    <line x1="300" y1="530" x2="300" y2="630"/>
+    <line x1="70" y1="400" x2="170" y2="400"/>
+    <line x1="430" y1="400" x2="530" y2="400"/>
+    <line x1="135" y1="235" x2="210" y2="310"/>
+    <line x1="390" y1="490" x2="465" y2="565"/>
+    <line x1="465" y1="235" x2="390" y2="310"/>
+    <line x1="210" y1="490" x2="135" y2="565"/>
+  </g>
+</svg>

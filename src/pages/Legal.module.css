@@ -1,0 +1,22 @@
+.article {
+  max-width: 760px;
+  margin-inline: auto;
+  background: var(--bg-surface);
+  padding: var(--space-8);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-sm);
+}
+
+.article h2 {
+  font-size: var(--fs-lg);
+  margin-top: var(--space-6);
+  margin-bottom: var(--space-2);
+  color: var(--accent);
+}
+.article h2:first-child { margin-top: 0; }
+
+.article p {
+  color: var(--text-secondary);
+  line-height: var(--lh-loose);
+}

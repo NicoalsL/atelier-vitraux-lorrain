@@ -1,0 +1,82 @@
+.field {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.control {
+  width: 100%;
+  padding: 1.1rem 1rem 0.6rem;
+  background: var(--bg-surface);
+  border: 1px solid var(--border-strong);
+  border-radius: var(--radius-md);
+  font-size: var(--fs-base);
+  color: var(--text-primary);
+  transition:
+    border-color var(--dur-base) var(--ease-out),
+    box-shadow var(--dur-base) var(--ease-out),
+    background-color var(--dur-base) var(--ease-out);
+  resize: vertical;
+}
+
+.control:hover {
+  border-color: var(--accent);
+}
+
+.control:focus {
+  outline: none;
+  border-color: var(--accent);
+  box-shadow: var(--shadow-glow);
+  background: #ffffff;
+}
+
+.label {
+  position: absolute;
+  top: 50%;
+  left: 1rem;
+  transform: translateY(-50%);
+  color: var(--text-muted);
+  font-size: var(--fs-base);
+  pointer-events: none;
+  background: transparent;
+  transition:
+    top var(--dur-base) var(--ease-out),
+    font-size var(--dur-base) var(--ease-out),
+    color var(--dur-base) var(--ease-out),
+    transform var(--dur-base) var(--ease-out);
+}
+
+textarea.control + .label {
+  top: 1.2rem;
+  transform: none;
+}
+
+.control:focus + .label,
+.control:not(:placeholder-shown) + .label {
+  top: 0.55rem;
+  transform: none;
+  font-size: var(--fs-xs);
+  color: var(--accent);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.hint {
+  font-size: var(--fs-xs);
+  color: var(--text-muted);
+  padding-left: 0.25rem;
+}
+
+.error {
+  font-size: var(--fs-xs);
+  color: var(--color-terracotta-700);
+  padding-left: 0.25rem;
+}
+
+.hasError .control {
+  border-color: var(--color-terracotta-500);
+}
+.hasError .control:focus {
+  box-shadow: 0 0 0 4px rgba(201, 123, 90, 0.2);
+}

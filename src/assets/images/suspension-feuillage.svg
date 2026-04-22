@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 800" role="img" aria-label="Suspension Feuillage">
+  <defs>
+    <radialGradient id="globe" cx="0.5" cy="0.45" r="0.5">
+      <stop offset="0%" stop-color="#e8f3ea"/>
+      <stop offset="55%" stop-color="#6fa593"/>
+      <stop offset="100%" stop-color="#1f4e3d"/>
+    </radialGradient>
+  </defs>
+  <rect width="600" height="800" fill="#faf6ef"/>
+  <!-- câble -->
+  <line x1="300" y1="40" x2="300" y2="260" stroke="#1a1a18" stroke-width="3"/>
+  <!-- monture -->
+  <rect x="270" y="250" width="60" height="20" fill="#c9a96a" stroke="#1a1a18" stroke-width="2"/>
+  <!-- globe -->
+  <circle cx="300" cy="490" r="220" fill="url(#globe)" stroke="#1a1a18" stroke-width="3"/>
+  <!-- feuilles stylisées -->
+  <g fill="#2f6e57" stroke="#1a1a18" stroke-width="2" opacity="0.9">
+    <path d="M220 420 Q 250 380 290 410 Q 260 450 220 440 Z"/>
+    <path d="M330 420 Q 370 380 400 420 Q 370 460 330 450 Z"/>
+    <path d="M200 520 Q 240 490 280 530 Q 240 570 200 540 Z"/>
+    <path d="M320 530 Q 360 490 400 520 Q 370 570 330 560 Z"/>
+    <path d="M260 600 Q 300 570 340 600 Q 310 640 270 620 Z"/>
+  </g>
+  <g stroke="#1a1a18" stroke-width="2" fill="none">
+    <path d="M220 420 Q 260 430 290 410"/>
+    <path d="M330 420 Q 370 430 400 420"/>
+  </g>
+</svg>

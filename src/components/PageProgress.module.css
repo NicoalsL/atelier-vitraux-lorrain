@@ -1,0 +1,18 @@
+.bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 3px;
+  z-index: 9999;
+  pointer-events: none;
+  background: linear-gradient(
+    90deg,
+    var(--color-emerald-500),
+    var(--color-gold-500),
+    var(--color-terracotta-500)
+  );
+  box-shadow: 0 0 10px rgba(201, 169, 106, 0.6);
+  transition: width 0.4s cubic-bezier(0.22, 1, 0.36, 1),
+              opacity 0.3s ease;
+  border-radius: 0 2px 2px 0;
+}

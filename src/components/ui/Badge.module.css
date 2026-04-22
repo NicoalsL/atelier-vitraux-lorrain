@@ -1,0 +1,31 @@
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.25rem 0.65rem;
+  border-radius: var(--radius-pill);
+  font-size: var(--fs-xs);
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.tone-neutral {
+  background: var(--bg-muted);
+  color: var(--text-primary);
+}
+
+.tone-emerald {
+  background: rgba(47, 110, 87, 0.12);
+  color: var(--color-emerald-700);
+}
+
+.tone-warm {
+  background: rgba(201, 123, 90, 0.14);
+  color: var(--color-terracotta-700);
+}
+
+.tone-gold {
+  background: rgba(201, 169, 106, 0.18);
+  color: #8a6d2f;
+}

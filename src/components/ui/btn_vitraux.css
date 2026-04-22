@@ -1,0 +1,84 @@
+.btn_vitraux {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.9rem 1.6rem;
+  border-radius: 14px;
+  border: none;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 0.95rem;
+  color: white;
+  overflow: hidden;
+
+  background: linear-gradient(
+    120deg,
+    #d97706,
+    #059669,
+    #0ea5e9,
+    #d97706
+  );
+  background-size: 300% 300%;
+
+  transition: transform 0.2s ease, box-shadow 0.3s ease;
+}
+
+/* effet verre */
+.btn_vitraux::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  backdrop-filter: blur(6px);
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: inherit;
+}
+
+/* lumière qui traverse */
+.vitraux-light {
+  position: absolute;
+  top: 0;
+  left: -120%;
+  width: 120%;
+  height: 100%;
+  background: linear-gradient(
+    120deg,
+    transparent,
+    rgba(255, 255, 255, 0.5),
+    transparent
+  );
+  transition: transform 0.7s ease;
+}
+
+/* contenu au-dessus */
+.vitraux-content {
+  position: relative;
+  z-index: 2;
+}
+
+/* hover = vie + lumière */
+.btn_vitraux:hover {
+  transform: translateY(-2px) scale(1.03);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+  background-position: right center;
+}
+
+.btn_vitraux:hover .vitraux-light {
+  transform: translateX(200%);
+}
+
+/* click type YouTube */
+.btn_vitraux.clicked {
+  transform: scale(0.95);
+}
+
+/* active */
+.btn_vitraux:active {
+  transform: scale(0.93);
+}
+
+/* disabled */
+.btn_vitraux:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}

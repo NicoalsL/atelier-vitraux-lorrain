@@ -1,0 +1,286 @@
+/* ══════════════════════════════════════════════════
+   BtnVitraux2 — bouton toggle "S'abonner" vitraux
+   Inspiré du bouton YouTube mais en verre cathédrale
+   ══════════════════════════════════════════════════ */
+
+/* ── Base ── */
+.btn-v2 {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 1.9rem;
+  height: 52px;
+  min-width: 168px;
+  border: none;
+  border-radius: 9999px;
+  cursor: pointer;
+  overflow: visible;
+  isolation: isolate;
+
+  font-family: var(--font-body, sans-serif);
+  font-size: 0.95rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  color: #fff;
+  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.35);
+
+  /* Gradient vitraux OFF : bordeaux → ambre → ardoise */
+  background: linear-gradient(
+    135deg,
+    #5c1a1a  0%,
+    #9b3a1a 28%,
+    #c9883a 52%,
+    #3d5a6e 78%,
+    #5c1a1a 100%
+  );
+  background-size: 300% 100%;
+  background-position: 0% 50%;
+
+  box-shadow:
+    0 2px 10px rgba(92, 26, 26, 0.45),
+    inset 0  1px 0 rgba(255, 255, 255, 0.18),
+    inset 0 -1px 0 rgba(0, 0, 0, 0.2);
+
+  transition:
+    background-position 0.55s cubic-bezier(0.4, 0, 0.2, 1),
+    box-shadow          0.3s ease,
+    transform           0.18s ease;
+
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* Bordure came de plomb */
+.btn-v2::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 9999px;
+  border: 1.5px solid rgba(255, 255, 255, 0.25);
+  pointer-events: none;
+  z-index: 4;
+}
+
+/* ── Hover ── */
+.btn-v2:hover:not(.btn-v2--burst) {
+  background-position: 65% 50%;
+  box-shadow:
+    0 4px 22px rgba(92, 26, 26, 0.5),
+    0 0   0 3px rgba(201, 136, 58, 0.28),
+    inset 0  1px 0 rgba(255, 255, 255, 0.22),
+    inset 0 -1px 0 rgba(0, 0, 0, 0.2);
+  transform: scale(1.04) translateY(-1px);
+}
+
+/* ── Active ── */
+.btn-v2:active:not(.btn-v2--burst) {
+  transform: scale(0.95);
+  transition-duration: 0.08s;
+}
+
+/* ── Focus a11y ── */
+.btn-v2:focus-visible {
+  outline: 3px solid rgba(217, 168, 78, 0.75);
+  outline-offset: 3px;
+}
+
+/* ══════════════════════
+   État ON — abonné
+   ══════════════════════ */
+.btn-v2--on {
+  /* Gradient ON : ambre doré → forêt → ardoise profond */
+  background: linear-gradient(
+    135deg,
+    #7a4a00  0%,
+    #c9883a 22%,
+    #d9a84e 46%,
+    #2a5240 72%,
+    #1e3a4a 90%,
+    #7a4a00 100%
+  );
+  background-size: 300% 100%;
+  background-position: 0% 50%;
+
+  box-shadow:
+    0  2px 14px rgba(201, 136, 58, 0.5),
+    0  0  24px rgba(201, 136, 58, 0.12),
+    inset 0  1px 0 rgba(255, 255, 255, 0.2),
+    inset 0 -1px 0 rgba(0, 0, 0, 0.2);
+}
+
+.btn-v2--on:hover:not(.btn-v2--burst) {
+  background-position: 65% 50%;
+  box-shadow:
+    0  4px 28px rgba(201, 136, 58, 0.55),
+    0  0   0 3px rgba(201, 136, 58, 0.32),
+    inset 0 1px 0 rgba(255, 255, 255, 0.22);
+}
+
+/* ── Pendant le burst ── */
+.btn-v2--burst {
+  transform: scale(0.91) !important;
+  pointer-events: none;
+}
+
+/* ══════════════════════
+   Rayon lumineux
+   ══════════════════════ */
+.v2-ray {
+  position: absolute;
+  inset: 0;
+  border-radius: 9999px;
+  overflow: hidden;
+  z-index: 2;
+  pointer-events: none;
+}
+.v2-ray::after {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -30%;
+  width: 34%;
+  height: 200%;
+  background: linear-gradient(
+    108deg,
+    transparent              0%,
+    rgba(255, 255, 255, 0.05) 30%,
+    rgba(255, 255, 255, 0.22) 50%,
+    rgba(255, 255, 255, 0.05) 70%,
+    transparent              100%
+  );
+  transform: translateX(-100%);
+}
+.btn-v2:hover .v2-ray::after {
+  animation: v2-ray 0.72s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+@keyframes v2-ray {
+  from { transform: translateX(-100%); }
+  to   { transform: translateX(420%);  }
+}
+
+/* ══════════════════════
+   Halo de lumière
+   ══════════════════════ */
+.v2-glow {
+  position: absolute;
+  inset: -8px;
+  border-radius: 9999px;
+  pointer-events: none;
+  z-index: 0;
+  opacity: 0;
+  background: radial-gradient(ellipse at center,
+    rgba(217, 168, 78, 0.38)  0%,
+    rgba(217, 168, 78, 0.08) 52%,
+    transparent              70%
+  );
+  transition: opacity 0.55s ease;
+}
+.btn-v2--on .v2-glow {
+  opacity: 1;
+  animation: v2-glow-pulse 3s ease-in-out infinite;
+}
+@keyframes v2-glow-pulse {
+  0%,  100% { opacity: 0.65; transform: scale(1);    }
+  50%       { opacity: 1;    transform: scale(1.08); }
+}
+
+/* ══════════════════════
+   Label
+   ══════════════════════ */
+.v2-label {
+  position: relative;
+  z-index: 3;
+  display: flex;
+  align-items: center;
+  gap: 0.4em;
+  white-space: nowrap;
+  transition: transform 0.2s ease, opacity 0.15s ease;
+}
+.btn-v2--burst .v2-label {
+  transform: scale(0.8);
+  opacity: 0.7;
+}
+.btn-v2--on .v2-label {
+  animation: v2-label-in 0.45s cubic-bezier(0.34, 1.56, 0.64, 1) both;
+}
+@keyframes v2-label-in {
+  from { transform: scale(0.72); opacity: 0.4; }
+  to   { transform: scale(1);    opacity: 1;   }
+}
+
+/* ── Étoile ── */
+.v2-star {
+  display: inline-block;
+  color: #fce97a;
+  filter: drop-shadow(0 0 5px #ffd700) drop-shadow(0 0 12px rgba(255, 215, 0, 0.5));
+  animation: v2-star-in 0.42s cubic-bezier(0.34, 1.56, 0.64, 1) both;
+}
+@keyframes v2-star-in {
+  0%   { transform: scale(0) rotate(-50deg); opacity: 0; }
+  100% { transform: scale(1) rotate(0deg);   opacity: 1; }
+}
+
+/* ══════════════════════
+   Éclats de verre
+   ══════════════════════ */
+.v2-frag {
+  position: absolute;
+  transform-origin: center;
+  z-index: 10;
+  pointer-events: none;
+  animation: v2-frag-fly 1s cubic-bezier(0.33, 1, 0.68, 1) forwards;
+  animation-duration: var(--dur, 1000ms);
+}
+
+/* Reflet de lumière simulant le verre teinté */
+.v2-frag::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.5)  0%,
+    rgba(255, 255, 255, 0.12) 40%,
+    transparent               65%
+  );
+  pointer-events: none;
+}
+
+@keyframes v2-frag-fly {
+  0% {
+    transform: translate(-50%, -50%) translate(0, 0) rotate(0deg) scale(1);
+    opacity: 1;
+  }
+  15% {
+    opacity: 1;
+  }
+  75% {
+    opacity: 0.8;
+  }
+  100% {
+    transform: translate(-50%, -50%) translate(var(--dx), var(--dy)) rotate(var(--rot)) scale(0.35);
+    opacity: 0;
+  }
+}
+
+/* ══════════════════════
+   Ripple d'onde
+   ══════════════════════ */
+.v2-ripple {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 12px;
+  height: 12px;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.4);
+  z-index: 5;
+  pointer-events: none;
+  animation: v2-ripple-anim 0.58s ease-out forwards;
+}
+@keyframes v2-ripple-anim {
+  0%   { transform: translate(-50%, -50%) scale(1);  opacity: 0.5; }
+  100% { transform: translate(-50%, -50%) scale(7);  opacity: 0;   }
+}

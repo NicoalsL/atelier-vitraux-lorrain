@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 800" role="img" aria-label="Lampe Tiffany Automne">
+  <defs>
+    <radialGradient id="glow" cx="0.5" cy="0.35" r="0.55">
+      <stop offset="0%" stop-color="#fff4dc"/>
+      <stop offset="50%" stop-color="#d9b382"/>
+      <stop offset="100%" stop-color="#a05438"/>
+    </radialGradient>
+    <linearGradient id="base" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#5a5a56"/>
+      <stop offset="100%" stop-color="#2b2b2b"/>
+    </linearGradient>
+  </defs>
+  <rect width="600" height="800" fill="#faf6ef"/>
+  <!-- abat jour -->
+  <path d="M150 380 Q 300 150 450 380 L 420 440 L 180 440 Z"
+        fill="url(#glow)" stroke="#1a1a18" stroke-width="3"/>
+  <!-- pièces -->
+  <g stroke="#1a1a18" stroke-width="2.5" fill="none">
+    <path d="M200 380 Q 300 200 400 380"/>
+    <path d="M240 400 Q 300 280 360 400"/>
+    <path d="M150 380 L 300 150 L 450 380"/>
+    <path d="M180 440 L 300 280 L 420 440"/>
+  </g>
+  <!-- pied -->
+  <rect x="285" y="440" width="30" height="210" fill="url(#base)"/>
+  <ellipse cx="300" cy="660" rx="110" ry="22" fill="url(#base)"/>
+  <ellipse cx="300" cy="660" rx="110" ry="22" fill="none" stroke="#1a1a18" stroke-width="2"/>
+</svg>
