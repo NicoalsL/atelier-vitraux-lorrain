@@ -33,7 +33,12 @@ export default function Navbar() {
   return (
     <header className={`${styles.nav} ${scrolled ? styles.scrolled : ''}`}>
       <div className={`container ${styles.inner}`}>
-        <Link to="/" className={styles.brand} aria-label="Atelier Vitraux Lorrain — Accueil">
+        <Link
+          to="/"
+          className={styles.brand}
+          aria-label="Atelier Vitraux Lorrain — Accueil"
+          onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+        >
           <svg className={styles.brandMark} viewBox="0 0 48 48" aria-hidden="true">
             <defs>
               <linearGradient id="nav-g" x1="0" y1="0" x2="1" y2="1">
@@ -62,6 +67,7 @@ export default function Navbar() {
               className={({ isActive }) =>
                 `${styles.link} ${isActive ? styles.active : ''}`
               }
+              onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
             >
               <span>{label}</span>
             </NavLink>
